@@ -53,7 +53,12 @@ public class Worker extends Person {
   * @param salary новая зарплата
   */
   public void setSalary(double salary) {
-    this.salary = salary;
+    if(salary > 0) {
+      this.salary = salary;
+    }
+    else {
+      System.out.println("Зарплата должна быть не меньше 0");
+    }
   }
 
   public boolean equals(Object obj) {

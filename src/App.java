@@ -83,6 +83,10 @@ public class App {
     String name = scanner.nextLine();
         
     int age = getIntInput("Введите возраст: ");
+    if (age < 0) {
+      System.out.println("Возраст не должен быть меньше 0");
+      return;
+    }
         
     switch (typeChoice) {
       case 1:
@@ -93,6 +97,10 @@ public class App {
         String position = scanner.next();
         scanner.nextLine();
         double salary = getDoubleInput("Введите зарплату: ");
+        if (salary < 0) {
+          System.out.println("Зарплата не должена быть меньше 0");
+          return;
+        }
         persons.add(new Worker(name, age, position, salary));
         break;
       case 3:
@@ -100,9 +108,18 @@ public class App {
         position = scanner.next();
         scanner.nextLine();
         salary = getDoubleInput("Введите зарплату: ");
+        if (salary <= 0) {
+          System.out.println("Зарплата не должена быть меньше 0");
+          return;
+        }
         System.out.print("Введите специализацию: ");
-        String specialization = scanner.nextLine();
+        String specialization = scanner.next();
+        scanner.nextLine();
         int experience = getIntInput("Введите опыт работы (лет): ");
+        if (experience < 0){
+          System.out.println("Опыт работы не должен быть отрицательным");
+          return; 
+        }
         persons.add(new Engineer(name, age, position, salary, specialization, experience));
         break;
       case 4:
@@ -111,10 +128,15 @@ public class App {
         scanner.nextLine();
         System.out.print("Введите роль: ");
         String role = scanner.nextLine();
-        persons.add(new Employee(name, age, department, role));
+        int certificate = getIntInput("Введите кол-во сертификатов: ");
+        if (certificate < 0){
+          System.out.println("Кол-во сертификатов не должен быть отрицательным");
+          return; 
+        }
+        persons.add(new Employee(name, age, department, role, certificate));
         break;
     } 
-    System.out.println("Объект успешно добавлен.");
+    System.out.println("Объект успешно добавлен!");
   }
 
   private static void removePersonByIndex() {

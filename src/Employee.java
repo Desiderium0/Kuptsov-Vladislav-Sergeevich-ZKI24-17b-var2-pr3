@@ -1,6 +1,7 @@
 public class Employee extends Person {
   private String department;
   private String role;
+  private int sertificate;
 
   /**
   * Конструктор по умолчанию.
@@ -9,6 +10,7 @@ public class Employee extends Person {
     super();
     this.department = "";
     this.role = "";
+    this.sertificate = 0;
   }
 
   /**
@@ -18,10 +20,32 @@ public class Employee extends Person {
   * @param department отдел
   * @param role роль
   */
-  public Employee(String name, int age, String department, String role) {
+  public Employee(String name, int age, String department, String role, int sertificate) {
     super(name, age);
     this.department = department;
     this.role = role;
+    this.sertificate = sertificate;
+  }
+
+  /**
+  * Получить число сертификатов служащего.
+  * @return сертификаты
+  */
+  public int getSertificate() {
+    return sertificate;
+  }
+
+  /**
+  * Установить сертификат служащего.
+  * @param sertificate новый сертификат
+  */
+  public void setSertificate(int sertificate) {
+    if (sertificate > 0) {
+      this.sertificate = sertificate;
+    } 
+    else {
+      System.out.println("Сертификатов не может быть меньше 0");
+    }
   }
 
   /**

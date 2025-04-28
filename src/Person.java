@@ -17,7 +17,12 @@ public class Person {
   */
   public Person(String name, int age) {
     this.name = name;
-    this.age = age;
+    if (age >= 0) {
+      this.age = age;
+    }  
+    else {
+      System.out.println("Возраст не должен быть меньше 0");
+    }
   }
 
   /**

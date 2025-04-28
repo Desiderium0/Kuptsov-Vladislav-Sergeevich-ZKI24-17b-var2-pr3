@@ -56,7 +56,12 @@ public class Engineer extends Worker {
   * @param experienceYears новый опыт работы в годах
   */
   public void setExperienceYears(int experienceYears) {
-    this.experienceYears = experienceYears;
+    if(experienceYears >= 0) {
+      this.experienceYears = experienceYears;
+    }
+    else { 
+      System.out.println("Опыт работы не должен быть отрицательным");
+    }
   }
 
   public boolean equals(Object obj) {
